@@ -22,7 +22,7 @@ function randomPlay() {
 ////////////////////////////////////////////////
 
 function getPlayerMove(move) {
-    var move; // Write an expression that operates on a variable called `move`
+    // Write an expression that operates on a variable called `move`
     if move !== null { // If a `move` has a value, your expression should evaluate to that value.
         return move;
     } else { // However, if `move` is not specified / is null, your expression should equal `getInput()`.
@@ -31,7 +31,7 @@ function getPlayerMove(move) {
 }
 
 function getComputerMove(move) {
-    var move;  // Write an expression that operates on a variable called `move`
+    // Write an expression that operates on a variable called `move`
     if move !== null { // If a `move` has a value, your expression should evaluate to that value.
         return move;
     } else { // However, if `move` is not specified / is null, your expression should equal `randomPlay()`.
@@ -40,11 +40,53 @@ function getComputerMove(move) {
 }
 
 function getWinner(playerMove,computerMove) {
-    var winner;
     // Write code that will set winner to either 'player', 'computer', or 'tie' based on the values of playerMove and computerMove.
     // Assume that the only values playerMove and computerMove can have are 'rock', 'paper', and 'scissors'.
     // The rules of the game are that 'rock' beats 'scissors', 'scissors' beats 'paper', and 'paper' beats 'rock'.
-    /* YOUR CODE HERE */
+    var winner;  
+    if (playerMove === "rock") {
+        switch (computerMove) {
+            case "rock":
+                winner = "tie";
+                break;
+            case "paper":
+                winner = "computer"
+                break;
+            case "scissors":
+                winner = "player"
+                break;
+            default:
+                winner = "Someone didn't pick! 1...2...3..."
+        }
+    } else if (playerMove === "paper") {
+         switch (computerMove) {
+            case "rock":
+                winner = "player";
+                break;
+            case "paper":
+                winner = "tie"
+                break;
+            case "scissors":
+                winner = "computer"
+                break;
+            default:
+                winner = "Someone didn't pick! 1...2...3..."
+        }
+    } else if (playerMove === "scissors") {
+         switch (computerMove) {
+            case "rock":
+                winner = "computer";
+                break;
+            case "paper":
+                winner = "player"
+                break;
+            case "scissors":
+                winner = "tie"
+                break;
+            default:
+                winner = "Someone didn't pick! 1...2...3..."
+        }
+    }
     return winner;
 }
 
@@ -56,4 +98,5 @@ function playToFive() {
     /* YOUR CODE HERE */
     return [playerWins, computerWins];
 }
+
 
