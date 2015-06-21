@@ -140,6 +140,8 @@ function playToX() {
         } else if (roundWinner === "computer") {
             computerWins += 1;
             console.log('Computer wins!');
+        } else {
+            console.log("It's a tie");
         }
     }
 
