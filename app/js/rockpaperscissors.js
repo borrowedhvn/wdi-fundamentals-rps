@@ -22,22 +22,20 @@ function randomPlay() {
 ////////////////////////////////////////////////
 
 function getPlayerMove(move) {
-    // Write an expression that operates on a variable called `move`
-    if move !== null { // If a `move` has a value, your expression should evaluate to that value.
+    if (move !== null) { 
         return move;
-    } else { // However, if `move` is not specified / is null, your expression should equal `getInput()`.
+    } else { 
         return getInput();
     }
-}
+} // closes getPlayerMove
 
 function getComputerMove(move) {
-    // Write an expression that operates on a variable called `move`
-    if move !== null { // If a `move` has a value, your expression should evaluate to that value.
+    if (move !== null) { 
         return move;
-    } else { // However, if `move` is not specified / is null, your expression should equal `randomPlay()`.
+    } else { 
         return randomPlay();
     }
-}
+} // closes getComputerMove
 
 function getWinner(playerMove,computerMove) {
     // Write code that will set winner to either 'player', 'computer', or 'tie' based on the values of playerMove and computerMove.
@@ -57,7 +55,7 @@ function getWinner(playerMove,computerMove) {
                 break;
             default:
                 winner = "Someone didn't pick! 1...2...3..."
-        }
+        } //closes switch
     } else if (playerMove === "paper") {
          switch (computerMove) {
             case "rock":
@@ -71,7 +69,7 @@ function getWinner(playerMove,computerMove) {
                 break;
             default:
                 winner = "Someone didn't pick! 1...2...3..."
-        }
+        } // closes switch
     } else if (playerMove === "scissors") {
          switch (computerMove) {
             case "rock":
@@ -85,18 +83,72 @@ function getWinner(playerMove,computerMove) {
                 break;
             default:
                 winner = "Someone didn't pick! 1...2...3..."
-        }
-    }
+        } // closes switch
+    } // closes else if
     return winner;
-}
+} // closes getWinner
+
+////////////////////////////////////////////////
+/*           Play to Five                     */
+////////////////////////////////////////////////
 
 function playToFive() {
+    // Write code that plays 'Rock, Paper, Scissors' until either the player or the computer has won five times.
     console.log("Let's play Rock, Paper, Scissors");
     var playerWins = 0;
     var computerWins = 0;
-    // Write code that plays 'Rock, Paper, Scissors' until either the player or the computer has won five times.
-    /* YOUR CODE HERE */
+
+    while (playerWins < 5 && computerWins < 5) {
+        var player = getInput();
+        var computer = randomPlay();
+        var roundWinner = getWinner(getPlayerMove(player), getComputerMove(computer));
+        if (roundWinner === "player") {
+            playerWins += 1;
+            console.log('Player wins!');
+        } else if (roundWinner === "computer") {
+            computerWins += 1;
+            console.log('Computer wins!');
+        }
+    }
+
     return [playerWins, computerWins];
 }
 
+////////////////////////////////////////////////
+/*           Play to X                    */
+////////////////////////////////////////////////
+
+function bestOf() {
+    console.log("How many wins ends the game?")
+    return prompt();
+}
+
+function playToX() {
+    // Write code that plays 'Rock, Paper, Scissors' until either the player or the computer has won five times.
+    console.log("Let's play Rock, Paper, Scissors");
+    var endGame = parseInt(bestOf());
+    var playerWins = 0;
+    var computerWins = 0;
+
+    while (playerWins < endGame && computerWins < endGame) {
+        var player = getInput();
+        var computer = randomPlay();
+        var roundWinner = getWinner(getPlayerMove(player), getComputerMove(computer));
+        if (roundWinner === "player") {
+            playerWins += 1;
+            console.log('Player wins!');
+        } else if (roundWinner === "computer") {
+            computerWins += 1;
+            console.log('Computer wins!');
+        }
+    }
+
+    return [playerWins, computerWins];
+}
+
+////////////////////////////////////////////////
+/*           Make Stuff Happen            */
+////////////////////////////////////////////////
+
+playToX();
 
