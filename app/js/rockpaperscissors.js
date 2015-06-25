@@ -4,9 +4,9 @@
 'use strict';
 
 function getInput() {
-    console.log("Please choose either 'rock', 'paper', or 'scissors'.")
+    console.log("Please choose either 'rock', 'paper', or 'scissors'.");
     return prompt();
-}
+} // closes getInput
 function randomPlay() {
     var randomNumber = Math.random();
     if (randomNumber < 0.33) {
@@ -16,45 +16,45 @@ function randomPlay() {
     } else {
         return "scissors";
     }
-}
+} // closes randomPlay
 ////////////////////////////////////////////////
-/*           Write Your Code Below            */
+/*           Game Play Instructions           */
 ////////////////////////////////////////////////
 
 function getPlayerMove(move) {
-    if (move !== null) { 
+    if (move !== null) {
         return move;
-    } else { 
+    } else {
         return getInput();
     }
 } // closes getPlayerMove
 
 function getComputerMove(move) {
-    if (move !== null) { 
+    if (move !== null) {
         return move;
-    } else { 
+    } else {
         return randomPlay();
     }
 } // closes getComputerMove
 
-function getWinner(playerMove,computerMove) {
+function getWinner(playerMove, computerMove) {
     // Write code that will set winner to either 'player', 'computer', or 'tie' based on the values of playerMove and computerMove.
     // Assume that the only values playerMove and computerMove can have are 'rock', 'paper', and 'scissors'.
     // The rules of the game are that 'rock' beats 'scissors', 'scissors' beats 'paper', and 'paper' beats 'rock'.
-    var winner;  
+    var winner;
     if (playerMove === "rock") {
         switch (computerMove) {
             case "rock":
                 winner = "tie";
                 break;
             case "paper":
-                winner = "computer"
+                winner = "computer";
                 break;
             case "scissors":
-                winner = "player"
+                winner = "player";
                 break;
             default:
-                winner = "Someone didn't pick! 1...2...3..."
+                winner = "Someone didn't pick!";
         } //closes switch
     } else if (playerMove === "paper") {
          switch (computerMove) {
@@ -62,13 +62,13 @@ function getWinner(playerMove,computerMove) {
                 winner = "player";
                 break;
             case "paper":
-                winner = "tie"
+                winner = "tie";
                 break;
             case "scissors":
-                winner = "computer"
+                winner = "computer";
                 break;
             default:
-                winner = "Someone didn't pick! 1...2...3..."
+                winner = "Someone didn't pick!";
         } // closes switch
     } else if (playerMove === "scissors") {
          switch (computerMove) {
@@ -76,13 +76,13 @@ function getWinner(playerMove,computerMove) {
                 winner = "computer";
                 break;
             case "paper":
-                winner = "player"
+                winner = "player";
                 break;
             case "scissors":
-                winner = "tie"
+                winner = "tie";
                 break;
             default:
-                winner = "Someone didn't pick! 1...2...3..."
+                winner = "Someone didn't pick!";
         } // closes switch
     } // closes else if
     return winner;
@@ -108,20 +108,23 @@ function playToFive() {
         } else if (roundWinner === "computer") {
             computerWins += 1;
             console.log('Computer wins!');
-        }
-    }
-
-    return [playerWins, computerWins];
-}
+        } else if (roundWinner === "tie") {
+            console.log("It's a tie");
+        } else {
+            console.log("Invalid player input. Please select rock, paper or scissors");
+        }// closes if...else
+    } // closes while loop
+    return ("Game over! You won " + playerWins + " times. The computer won " + computerWins + " times.");
+} // closes PlayToFive
 
 ////////////////////////////////////////////////
 /*           Play to X                    */
 ////////////////////////////////////////////////
 
 function bestOf() {
-    console.log("How many wins ends the game?")
+    console.log("How many wins ends the game?");
     return prompt();
-}
+} // closes bestOf
 
 function playToX() {
     // Write code that plays 'Rock, Paper, Scissors' until either the player or the computer has won five times.
@@ -140,17 +143,18 @@ function playToX() {
         } else if (roundWinner === "computer") {
             computerWins += 1;
             console.log('Computer wins!');
-        } else {
+        } else if (roundWinner === "tie") {
             console.log("It's a tie");
-        }
-    }
+        } else {
+            console.log("Invalid player input. Please select rock, paper or scissors");
+        } // closes if...else
+    } // closes while loop
 
-    return [playerWins, computerWins];
-}
+    return ("Game over! You won " + playerWins + " times. The computer won " + computerWins + " times.");
+} // closes playToX
 
 ////////////////////////////////////////////////
-/*           Make Stuff Happen            */
+/*          Play Rock Paper Scissors          */
 ////////////////////////////////////////////////
 
 playToX();
-
