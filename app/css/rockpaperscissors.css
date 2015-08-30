@@ -37,6 +37,18 @@
 	color: #eee;
 }
 
+#numberOfWins {
+	max-width: 75px;
+	height: 46px;
+	margin: 20px;
+	color: #393E41;
+}
+
+.start_game {
+	vertical-align: top;
+	margin: 20px;
+}
+
 
 /* Scoreboard */
 

@@ -3,9 +3,8 @@
 ////////////////////////////////////////////////
 'use strict';
 
-function getInput() {
-    console.log("Please choose either 'rock', 'paper', or 'scissors'.");
-    return prompt();
+function getInput(selection) {
+    console.log(selection);
 } // closes getInput
 function randomPlay() {
     var randomNumber = Math.random();
@@ -20,6 +19,8 @@ function randomPlay() {
 ////////////////////////////////////////////////
 /*           Game Play Instructions           */
 ////////////////////////////////////////////////
+var playerWins = 0;
+var computerWins = 0;
 
 function getPlayerMove(move) {
     if (move !== null) {
@@ -121,17 +122,13 @@ function playToFive() {
 /*           Play to X                    */
 ////////////////////////////////////////////////
 
-function bestOf() {
-    console.log("How many wins ends the game?");
-    return prompt();
+function bestOf(numberOfWins) {
+    console.log(numberOfWins);
 } // closes bestOf
 
-function playToX() {
+function playToX(numberOfWins) {
     // Write code that plays 'Rock, Paper, Scissors' until either the player or the computer has won five times.
-    console.log("Let's play Rock, Paper, Scissors");
-    var endGame = parseInt(bestOf());
-    var playerWins = 0;
-    var computerWins = 0;
+    var endGame = parseInt(numberOfWins);
 
     while (playerWins < endGame && computerWins < endGame) {
         var player = getInput();
@@ -157,4 +154,9 @@ function playToX() {
 /*          Play Rock Paper Scissors          */
 ////////////////////////////////////////////////
 
-playToX();
+// playToX();
+
+////////////////////////////////////////////////
+/*          Play Rock Paper Scissors          */
+////////////////////////////////////////////////
+
