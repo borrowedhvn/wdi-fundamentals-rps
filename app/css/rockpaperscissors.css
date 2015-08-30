@@ -29,7 +29,7 @@
 	color: #393E41;
 	margin-top: 30px;
 	padding: 2%;
-	min-width: 200px;
+	min-width: 175px;
 	font-size: 1.2em;
 }
 
@@ -43,17 +43,13 @@
 .action_items  {
 	background-color: #393E41;
 	color: #eee;
-	width: 70%;
-	margin: 20px auto;
+	width: 80%;
+	margin: 10px auto;
 	border-radius: 7px;
 }
 
 .panel {
-	margin: 10%;
-}
-
-.panel-title {
-	font-size: 1em;
+	margin: 5%;
 }
 
 .panel-info>.panel-heading {
@@ -61,36 +57,38 @@
 	background-color: #e7BB41;
     color: #393E41;
     border: none;
-    font-size: 1.5em;
-    padding: 8%;
+    font-size: 1em;
+    padding: 5%;
 }
 
 .panel-info {
 	border: none;
+	max-width: 250px;
+	margin: 30px auto;
 }
 
 .panel-body {
 	color: #393E41;
 	border-color: #393E41;
-    padding: 10%;
-    font-size: 1.5em
+    padding: 6%;
+    font-size: 1.25em
 }
 
 /* Select Move */
 .select_move {
-	padding: 30px;
+	padding: 15px;
 }
 
 .select_move h2 {
-	margin-bottom: 50px;
+	margin-bottom: 30px;
 }
 
 .select_move button {
 	background-color: #e7BB41;
-	padding: 20px;
+	padding: 10px;
 	margin: 3%;
 	font-size: 2em;
-	min-width: 200px;
+	min-width: 175px;
 }
 
 /* Round History */
@@ -99,4 +97,29 @@ i.fa {
 	display: block;
 }
 
+.table {
+	border: 1px solid #eee;
+	width: 90%;
+	margin: 0 auto;
+}
+
+th {
+	text-align: center;
+}
+
+.win {
+	background-color: #e7BB41;
+}
+
 /* Media Queries */
+
+@media screen and (max-width: 767px) {
+	.panel-info {
+	    width: 75%;
+	    margin: 20px auto 30px;
+	}
+
+	.table {
+		width: 100%;
+}
+}
