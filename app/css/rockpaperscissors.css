@@ -1,6 +1,47 @@
+/* Reset Font Family */
+
+* {
+	font-family: 'Lato', sans-serif;
+}
+
+/* Header */
+.jumbotron {
+	text-align: center;
+	background-color: #666A86;
+	color: #EEE;
+}
+
+.rock {
+	font-family: 'Slackey', cursive;
+}
+
+.paper {
+	font-family: 'Leckerli One', cursive;
+}
+
+.scissors {
+	font-family: 'Permanent Marker', cursive;
+}
+
+.newgame {
+	background-color: #E7BB41;
+	color: #393E41;
+	margin-top: 30px;
+}
+
+.newgame:hover {
+	color: #eee;
+}
+
+
+/* Leaderboard */
+
+/* Select Move */
 .select_move {
 	background-color: black;
 }
+
+/* Round History */
 
 i.fa {
 	color: red;
