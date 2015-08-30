@@ -114,7 +114,7 @@ function playToFive() {
             console.log("Invalid player input. Please select rock, paper or scissors");
         }// closes if...else
     } // closes while loop
-    return ("Game over! You won " + playerWins + " times. The computer won " + computerWins + " times.");
+    console.log("Game over! You won " + playerWins + " times. The computer won " + computerWins + " times.");
 } // closes PlayToFive
 
 ////////////////////////////////////////////////
@@ -150,7 +150,7 @@ function playToX() {
         } // closes if...else
     } // closes while loop
 
-    return ("Game over! You won " + playerWins + " times. The computer won " + computerWins + " times.");
+    console.log("Game over! You won " + playerWins + " times. The computer won " + computerWins + " times.");
 } // closes playToX
 
 ////////////////////////////////////////////////
