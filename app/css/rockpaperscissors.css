@@ -2,6 +2,7 @@
 
 * {
 	font-family: 'Lato', sans-serif;
+	text-align: center;
 }
 
 /* Header */
@@ -27,6 +28,9 @@
 	background-color: #E7BB41;
 	color: #393E41;
 	margin-top: 30px;
+	padding: 2%;
+	min-width: 200px;
+	font-size: 1.2em;
 }
 
 .newgame:hover {
@@ -34,15 +38,65 @@
 }
 
 
-/* Leaderboard */
+/* Scoreboard */
+
+.action_items  {
+	background-color: #393E41;
+	color: #eee;
+	width: 70%;
+	margin: 20px auto;
+	border-radius: 7px;
+}
+
+.panel {
+	margin: 10%;
+}
+
+.panel-title {
+	font-size: 1em;
+}
+
+.panel-info>.panel-heading {
+	background-image: none;
+	background-color: #e7BB41;
+    color: #393E41;
+    border: none;
+    font-size: 1.5em;
+    padding: 8%;
+}
+
+.panel-info {
+	border: none;
+}
+
+.panel-body {
+	color: #393E41;
+	border-color: #393E41;
+    padding: 10%;
+    font-size: 1.5em
+}
 
 /* Select Move */
 .select_move {
-	background-color: black;
+	padding: 30px;
+}
+
+.select_move h2 {
+	margin-bottom: 50px;
+}
+
+.select_move button {
+	background-color: #e7BB41;
+	padding: 20px;
+	margin: 3%;
+	font-size: 2em;
+	min-width: 200px;
 }
 
 /* Round History */
 
 i.fa {
-	color: red;
+	display: block;
 }
+
+/* Media Queries */
