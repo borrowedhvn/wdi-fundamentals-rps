@@ -4,7 +4,7 @@
 'use strict';
 
 function getInput(selection) {
-    console.log(selection);
+    return selection;
 } // closes getInput
 function randomPlay() {
     var randomNumber = Math.random();
@@ -131,7 +131,6 @@ function playToX(numberOfWins) {
     var endGame = parseInt(numberOfWins);
 
     while (playerWins < endGame && computerWins < endGame) {
-        var player = getInput();
         var computer = randomPlay();
         var roundWinner = getWinner(getPlayerMove(player), getComputerMove(computer));
         if (roundWinner === "player") {

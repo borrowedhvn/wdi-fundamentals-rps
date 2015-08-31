@@ -51,6 +51,8 @@
         <p><a class="btn btn-lg newgame" href="#" role="button">New Game</a></p>
     </div>
 
+    <button type="button" class="btn btn-lg moves"><i class="fa fa-hand-rock-o"></i>Select Your Move</button>
+
     <!-- Select Your Move Row -->
   <div class="row action_items">
       <div class="select_move col-md-12">
@@ -105,21 +107,6 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>1</td>
-                <td class="win"><i class="fa fa-hand-scissors-o"></i>Scissors</td>
-                <td><i class="fa fa-hand-paper-o"></i>Paper</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td><i class="fa fa-hand-scissors-o"></i>Scissors</td>
-                <td class="win"><i class="fa fa-hand-rock-o"></i>Rock</td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td class="win"><i class="fa fa-hand-paper-o"></i>Paper</td>
-                <td><i class="fa fa-hand-rock-o"></i>Rock</td>
-              </tr>
             </tbody>
           </table>
         </div>
@@ -138,6 +125,62 @@
     <!-- <script src="bower_components/jquery/dist/jquery.js"></script> -->
     <!-- endbower -->
     <!-- endbuild -->
+
+<!-- End of Game Modal -->
+<div class="container gameOver">
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Game Over</h4>
+        </div>
+        <div class="modal-body">
+          <div class="row action_items gameOverScoreboard">
+        <div class="col-lg-12">
+            <h2 class="rock">Scoreboard</h2>
+        </div>
+        <!-- Scoreboard Row-->
+        <div class="row">
+            <!-- Player Wins -->
+            <div class="col-sm-6">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                      <h3 class="panel-title">Player</h3>
+                    </div>
+                    <div class="panel-body player_score">
+                      0
+                    </div>
+                  </div>
+              </div>
+
+            <!-- Computer Wins -->
+            <div class="col-sm-6">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                      <h3 class="panel-title">Computer</h3>
+                    </div>
+                    <div class="panel-body computer_score">
+                      0
+                    </div>
+                </div>
+            </div>
+        </div> 
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default replay" data-dismiss="modal">Play Again</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="js/rockpaperscissors.js" type="text/javascript"></script>
