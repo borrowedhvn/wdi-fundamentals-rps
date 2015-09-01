@@ -1,11 +1,6 @@
-// var imported = document.createElement('script');
-// imported.src = 'js/rockpaperscissors.js';
-// document.head.appendChild(imported);
-
 // Global Variables 
 var playerWins = 0;
 var computerWins = 0;
-// var numberOfWins;
 var round = 1;
 var playerMove;
 var computerMove;
@@ -160,21 +155,27 @@ function getWinner(playerMove, computerMove) {
 
 $(document).ready (function() {
 
-	$(".action_items").hide();
+	$(".action_items").show();
 	$("#change_wins_form").hide();
 
 	// Set Number of Wins to End the Game
+	// $("#change_wins_form").submit(function() {
+	// var winInput = parseInt($("#numberOfWins").val());
+	// 	// if ((winInput === NaN) || (winInput > 10)) {
+	// 	// 	$(".action_items").hide();
+	// 	// 	alert("Please pick a number between 1 and 10.");
+	// 	// } else if (winInput <= 10) {
+	// 	// 	console.log("entered");
+	// 	// 	endGame = winInput;
+	// 		$("#change_wins_form").slideUp("slow");
+	// 	// 	$(".action_items").show();
+	// 	// }; 
+	// });
+
+// Set Number of Wins to End the Game
 	$("#change_wins_form").submit(function(e) {
-		var winInput = parseInt($("#numberOfWins").val());
-		console.log(winInput);
-		if ((winInput === NaN) || (winInput > 10)) {
-			$(".action_items").hide();
-			alert("Please pick a number between 1 and 10.");
-		} else if (winInput <= 10) {
-			endGame = winInput;
-			$("#change_wins_form").slideUp("slow");
-			$(".action_items").fadeIn("slow");
-		} 
+		endGame = parseInt($("#numberOfWins").val());
+		$("#change_wins_form").slideUp("slow");
 	});
 
 
