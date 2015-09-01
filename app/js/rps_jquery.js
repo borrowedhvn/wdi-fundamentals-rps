@@ -17,7 +17,11 @@ function refreshScores() {
 	$(".computer_score").html(computerWins);
 	$(".player_score").html(playerWins);
 	// endGame = parseInt(numberOfWins);
-	if ((playerWins >= endGame) || (computerWins >= endGame)) {
+	if (playerWins >= endGame) {
+		$(".modal-title").prepend("<h1 class='winner_message'>Yay! You Won!</h1>");
+		$("#myModal").modal("show");
+	} else if (computerWins >= endGame) {
+		$(".modal-title").prepend("<h1 class='winner_message'>Game Over &ndash; Computer Won</h1>");
 		$("#myModal").modal("show");
     }
 }
@@ -161,9 +165,16 @@ $(document).ready (function() {
 
 	// Set Number of Wins to End the Game
 	$("#change_wins_form").submit(function(e) {
-		endGame = parseInt($("#numberOfWins").val());
-		$("#change_wins_form").slideUp("slow");
-		$(".action_items").fadeIn("slow");
+		var winInput = parseInt($("#numberOfWins").val());
+		console.log(winInput);
+		if ((winInput === NaN) || (winInput > 10)) {
+			$(".action_items").hide();
+			alert("Please pick a number between 1 and 10.");
+		} else if (winInput <= 10) {
+			endGame = winInput;
+			$("#change_wins_form").slideUp("slow");
+			$(".action_items").fadeIn("slow");
+		} 
 	});
 
 
@@ -198,6 +209,7 @@ $(document).ready (function() {
 		// var numberOfWins;
 		round = 1;
 		$("tbody").html("");
+		$(".winner_message").remove();
 		refreshScores();
 		$("#change_wins_form").slideDown("slow");
 	});
