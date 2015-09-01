@@ -48,69 +48,75 @@
             <span class="paper">Paper </span>
             <span class="scissors">Scissors</span>
         </h1>
-        <p><a class="btn btn-lg newgame" href="#" role="button">New Game</a></p>
+        <!-- Start New Game -->
+        <button type="button" class="btn btn-lg newgame">New Game</button>
+        <!-- Change Number of Wins -->
+        <form id='change_wins_form'>
+            <p>How many wins are needed to end the game?</p>
+            <input type='text' id='numberOfWins'>
+            <input type='submit' value='Start Game' class='btn btn-lg change_wins'>
+        </form>
     </div>
 
-    <button type="button" class="btn btn-lg moves"><i class="fa fa-hand-rock-o"></i>Select Your Move</button>
-
     <!-- Select Your Move Row -->
-  <div class="row action_items">
-      <div class="select_move col-md-12">
+    <div class="row action_items">
+      <div class="select_move col-md-4">
           <h2> Select Your Move</h2>
           <button type="button" class="btn btn-lg rock"><i class="fa fa-hand-rock-o"></i>Rock</button>
           <button type="button" class="btn btn-lg paper"><i class="fa fa-hand-paper-o"></i>Paper</button>
           <button type="button" class="btn btn-lg scissors"><i class="fa fa-hand-scissors-o"></i>Scissors</button>
       </div>
-  </div>
 
-      <div class="row action_items">
-        <div class="col-lg-12">
-            <h2 class="rock">Scoreboard</h2>
-        </div>
-        <!-- Scoreboard Row-->
-        <div class="row">
-            <!-- Player Wins -->
-            <div class="col-sm-6">
-                <div class="panel panel-info">
-                    <div class="panel-heading">
-                      <h3 class="panel-title">Player</h3>
-                    </div>
-                    <div class="panel-body player_score">
-                      0
-                    </div>
-                  </div>
-              </div>
-
-            <!-- Computer Wins -->
-            <div class="col-sm-6">
-                <div class="panel panel-info">
-                    <div class="panel-heading">
-                      <h3 class="panel-title">Computer</h3>
-                    </div>
-                    <div class="panel-body computer_score">
-                      0
-                    </div>
-                </div>
-            </div>
-        </div> 
-    </div>
-
-    <!-- Round History Row -->
-    <div class="row history">
-      <div class="col-md-12">
+        <div class="round_history col-md-4">
+          <h2> Rounds</h2>
           <table class="table">
             <thead>
               <tr>
                 <th>Round</th>
                 <th>Player</th>
                 <th>Computer</th>
-              </tr>
             </thead>
             <tbody>
             </tbody>
           </table>
+      </div>
+
+        <div class="col-md-4 scoreboard">
+            <h2 class="rock">Scoreboard</h2>
+            <h4>3 Wins Ends the Game</h4>
+        <div>
+
+    <div class="row">
+
+        <!-- Player Wins -->
+        <div class="col-sm-6 player_score_container">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Player</h3>
+              </div>
+              <div class="panel-body player_score">
+                  0
+              </div>
+            </div>
+        </div>
+
+          <!-- Computer Wins -->
+        <div class="col-sm-6 computer_score_container">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Computer</h3>
+                </div>
+                <div class="panel-body computer_score">
+                  0
+                </div>
+            </div>
         </div>
     </div>
+
+
+</div>
+</div>
+</div>
 
     <!-- build:js(.) scripts/oldieshim.js -->
     <!--[if lt IE 9]>
@@ -172,7 +178,7 @@
         </div> 
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default replay" data-dismiss="modal">Play Again</button>
+          <button type="button" class="btn btn-default newgame" data-dismiss="modal">New Game</button>
         </div>
       </div>
       
