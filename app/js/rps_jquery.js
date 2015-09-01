@@ -5,7 +5,7 @@ var round = 1;
 var playerMove;
 var computerMove;
 var winner;
-var endGame;
+var endGame = 3;
 
 // Update Scoreboard 
 function refreshScores() {
@@ -174,8 +174,11 @@ $(document).ready (function() {
 
 // Set Number of Wins to End the Game
 	$("#change_wins_form").submit(function(e) {
-		endGame = parseInt($("#numberOfWins").val());
-		$("#change_wins_form").slideUp("slow");
+		console.log(endGame);
+		endGame = ("#numberOfWins").val();
+		console.log(endGame);
+		endGame = parseInt(endGame);
+		console.log(endGame);
 	});
 
 
