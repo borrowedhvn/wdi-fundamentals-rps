@@ -85,15 +85,6 @@
     font-size: 1.25em
 }
 
-div.computer_score_container,
-div.player_score_container {
-	
-}
-
-div.player_score_container {
-	
-}
-
 div.scoreboard {
 	padding: 15px;
 }
@@ -140,18 +131,6 @@ div.round_history h2 {
 	margin-top: 36px;
 }
 
-/* Media Queries */
-
-@media screen and (max-width: 767px) {
-	.panel-info {
-	   
-	}
-
-	.table {
-		width: 100%;
-}
-}
-
 /* Modal Popup Game Over */
 .gameOverScoreboard {
 	width: 100%;
@@ -166,5 +145,12 @@ div.round_history h2 {
 	min-width: 175px;
 	font-size: 1.8em;
 	font-family: 'Lato', sans-serif;
-	
+}
+
+/* Media Queries */
+
+@media screen and (max-width: 767px) {
+	.table {
+		width: 100%;
+	}
 }

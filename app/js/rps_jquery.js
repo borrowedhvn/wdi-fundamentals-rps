@@ -1,13 +1,14 @@
 'use strict';
 
 // Global Variables 
-var endGame;
+var endGame = 3;
 var playerWins = 0;
 var computerWins = 0;
 var round = 1;
 var playerMove;
 var computerMove;
 var winner;
+var playerName = "Player";
 
 // New Game
 function newGame() {
@@ -106,8 +107,11 @@ function refreshScores() {
 	if (playerWins >= endGame) {
 		if ($(".winner_message").length) {
 			// do nothing
-		} else {
+		} else if (playerName === "Player") {
 			$(".modal-title").prepend("<h1 class='winner_message'>Yay! You Won!</h1>");
+		}
+		else {
+			$(".modal-title").prepend("<h1 class='winner_message'>Yay! " + playerName + " Won!</h1>");
 		}
 		$("#myModal").modal("show");
 
@@ -158,28 +162,25 @@ function createHistoryRow(winner) {
 		$("td").css("text-transform", "capitalize");
 }
 
-	// Set Number of Wins to End the Game
-	// $("#change_wins_form").submit(function() {
-	// var winInput = parseInt($("#numberOfWins").val());
-	// 	// if ((winInput === NaN) || (winInput > 10)) {
-	// 	// 	$(".action_items").hide();
-	// 	// 	alert("Please pick a number between 1 and 10.");
-	// 	// } else if (winInput <= 10) {
-	// 	// 	console.log("entered");
-	// 	// 	endGame = winInput;
-	// 		$("#change_wins_form").slideUp("slow");
-	// 	// 	$(".action_items").show();
-	// 	// }; 
-	// });
-
-// Set Number of Wins to End the Game
+// Set New Game Parameters
 function submitNewGameForm() {
+
+	// Set Number of Wins to End the Game
 	endGame = parseInt($("#numberOfWins").val());
-	$("#change_wins_form").slideUp("slow");
-	$(".action_items").fadeIn("slow");
+	if ((endGame === NaN) || (endGame > 10)) {
+		alert("Please pick a number between 1 and 10.");
+	} else {
+		$("div.scoreboard h4").html(endGame + " Wins Ends the Game");
+		$("#change_wins_form").slideUp("slow");
+		$(".action_items").fadeIn("slow");
+	}
+
+	// Get Player Name
+	playerName = ($("#playerName").val());
+	$(".player_name").html(playerName);
 }
 
-// Button Click Functionality
+// Button Click Actions
 $("button.newgame").click(newGame);
 $("#change_wins_form").submit(function(e) {
 	e.preventDefault();

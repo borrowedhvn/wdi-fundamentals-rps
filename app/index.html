@@ -56,7 +56,7 @@
         <form id="change_wins_form">
             <p>What is your name?</p>
             <input type="text" id="playerName">
-            <p>How many wins are needed to end the game?</p>
+            <p>How many wins are needed to end the game? (1&ndash;10)</p>
             <input type="text" id="numberOfWins">
             <input type="submit" value="Start Game" class="btn btn-lg change_wins">
         </form>
@@ -78,7 +78,7 @@
             <thead>
               <tr>
                 <th>Round</th>
-                <th>Player</th>
+                <th class="player_name">Player</th>
                 <th>Computer</th>
               </tr>
             </thead>
@@ -98,7 +98,7 @@
           <div class="col-sm-6 player_score_container">
               <div class="panel panel-info">
                   <div class="panel-heading">
-                    <h3 class="panel-title">Player</h3>
+                    <h3 class="panel-title player_name">Player</h3>
                   </div>
                 <div class="panel-body player_score">
                     0
@@ -148,7 +148,7 @@
                   <div class="col-sm-6">
                       <div class="panel panel-info">
                           <div class="panel-heading">
-                            <h3 class="panel-title">Player</h3>
+                            <h3 class="panel-title player_name">Player</h3>
                           </div>
                           <div class="panel-body player_score">
                             0
