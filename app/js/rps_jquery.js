@@ -1,7 +1,7 @@
 'use strict';
 
 // Global Variables 
-var endGame = 4;
+var endGame;
 var playerWins = 0;
 var computerWins = 0;
 var round = 1;
@@ -121,6 +121,7 @@ function refreshScores() {
     }
 }
 
+// Create History Row
 function createHistoryRow(winner) {
 	var historyRowData;
 	historyRowData += "<tr><td>" + round + "</td>";
@@ -172,25 +173,25 @@ function createHistoryRow(winner) {
 	// });
 
 // Set Number of Wins to End the Game
-	$("#change_wins_form").submit(function() {
-		endGame = parseInt($("#numberOfWins").val());
-		console.log(endGame);
-	});
-
-	// $(".hide_form").click(function() {
-	// 	endGame = parseInt($("#numberOfWins").val());
-	// 	$("#change_wins_form").slideUp("slow");
-	// });
+function submitNewGameForm() {
+	endGame = parseInt($("#numberOfWins").val());
+	$("#change_wins_form").slideUp("slow");
+	$(".action_items").fadeIn("slow");
+}
 
 // Button Click Functionality
 $("button.newgame").click(newGame);
+$("#change_wins_form").submit(function(e) {
+	e.preventDefault();
+	submitNewGameForm();
+});
 $("button.rock").click(function() {getMove("rock");});
 $("button.paper").click(function() {getMove("paper");});
 $("button.scissors").click(function() {getMove("scissors");});
 
 $(document).ready(function() {
 
-	$(".action_items").show();
+	$(".action_items").hide();
 	$("#change_wins_form").hide();
 
 });
