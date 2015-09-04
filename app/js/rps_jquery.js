@@ -9,7 +9,7 @@ var playerMove;
 var computerMove;
 var winner;
 
-	// New Game
+// New Game
 function newGame() {
 	playerWins = 0;
 	computerWins = 0;
@@ -20,91 +20,16 @@ function newGame() {
 	$("#change_wins_form").slideDown("slow");
 }
 
+// Get Player Move
 function getMove(playerSelection) {
 	playerMove = playerSelection;
 	winner = getWinner(playerMove, randomPlay());
 	createHistoryRow(winner);
 	refreshScores();
-}
-	
-
-// Update Scoreboard 
-function refreshScores() {
-	$(".computer_score").html(computerWins);
-	$(".player_score").html(playerWins);
-
-	if (playerWins >= endGame) {
-		$(".modal-title").prepend("<h1 class='winner_message'>Yay! You Won!</h1>");
-		$("#myModal").modal("show");
-	} else if (computerWins >= endGame) {
-		$(".modal-title").prepend("<h1 class='winner_message'>Game Over &ndash; Computer Won</h1>");
-		$("#myModal").modal("show");
-    }
-}
-
-function createHistoryRow(winner) {
-	var historyRowData;
-	historyRowData += "<tr><td>" + round + "</td>";
-
-	if (winner === "player") {
-		if (playerMove === "rock") {
-			historyRowData += "<td class='playerDataCell win'><i class='fa fa-hand-rock-o'></i>Rock</td>";
-		} else if (playerMove === "paper") {
-			historyRowData += "<td class='playerDataCell win'><i class='fa fa-hand-paper-o'></i>Paper</td>";
-		} else if (playerMove === "scissors") {
-			historyRowData += "<td class='playerDataCell win'><i class='fa fa-hand-scissors-o'></i>Scissors</td>";
-		}
-
-		if (computerMove === "rock") {
-			historyRowData += "<td class='computerDataCell'><i class='fa fa-hand-rock-o'></i>Rock</td></tr>";
-		} else if (computerMove === "paper") {
-			historyRowData += "<td class='computerDataCell'><i class='fa fa-hand-paper-o'></i>Paper</td></tr>";
-		} else if (computerMove === "scissors") {
-			historyRowData += "<td class='computerDataCell'><i class='fa fa-hand-scissors-o'></i>Scissors</td></tr>";
-		}
-	}
-
-	if (winner === "computer") {
-		if (playerMove === "rock") {
-			historyRowData += "<td class='playerDataCell'><i class='fa fa-hand-rock-o'></i>Rock</td>";
-		} else if (playerMove === "paper") {
-			historyRowData += "<td class='playerDataCell'><i class='fa fa-hand-paper-o'></i>Paper</td>";
-		} else if (playerMove === "scissors") {
-			historyRowData += "<td class='playerDataCell'><i class='fa fa-hand-scissors-o'></i>Scissors</td>";
-		}
-
-		if (computerMove === "rock") {
-			historyRowData += "<td class='computerDataCell win'><i class='fa fa-hand-rock-o'></i>Rock</td></tr>";
-		} else if (computerMove === "paper") {
-			historyRowData += "<td class='computerDataCell win'><i class='fa fa-hand-paper-o'></i>Paper</td></tr>";
-		} else if (computerMove === "scissors") {
-			historyRowData += "<td class='computerDataCell win'><i class='fa fa-hand-scissors-o'></i>Scissors</td></tr>";
-		}
-	}
-
-	else if (winner === "tie") {
-		if (playerMove === "rock") {
-			historyRowData += "<td class='playerDataCell'><i class='fa fa-hand-rock-o'></i>Rock</td>";
-		} else if (playerMove === "paper") {
-			historyRowData += "<td class='playerDataCell'><i class='fa fa-hand-paper-o'></i>Paper</td>";
-		} else if (playerMove === "scissors") {
-			historyRowData += "<td class='playerDataCell'><i class='fa fa-hand-scissors-o'></i>Scissors</td>";
-		}
-
-		if (computerMove === "rock") {
-			historyRowData += "<td class='computerDataCell'><i class='fa fa-hand-rock-o'></i>Rock</td></tr>";
-		} else if (computerMove === "paper") {
-			historyRowData += "<td class='computerDataCell'><i class='fa fa-hand-paper-o'></i>Paper</td></tr>";
-		} else if (computerMove === "scissors") {
-			historyRowData += "<td class='computerDataCell'><i class='fa fa-hand-scissors-o'></i>Scissors</td></tr>";
-		}
-	}
-
-	$("tbody").append(historyRowData);
 	round += 1;
 }
 
-// Random Play
+// Random Play for Computer
 function randomPlay() {
     var randomNumber = Math.random();
     if (randomNumber < 0.33) {
@@ -172,6 +97,50 @@ function getWinner(playerMove, computerMove) {
     } // closes else if
     return winner;
 } // closes getWinner
+	
+// Update Scoreboard 
+function refreshScores() {
+	$(".computer_score").html(computerWins);
+	$(".player_score").html(playerWins);
+
+	if (playerWins >= endGame) {
+		$(".modal-title").prepend("<h1 class='winner_message'>Yay! You Won!</h1>");
+		$("#myModal").modal("show");
+	} else if (computerWins >= endGame) {
+		$(".modal-title").prepend("<h1 class='winner_message'>Game Over &ndash; Computer Won</h1>");
+		$("#myModal").modal("show");
+    }
+}
+
+function createHistoryRow(winner) {
+	var historyRowData;
+	historyRowData += "<tr><td>" + round + "</td>";
+
+		if (playerMove === "rock") {
+			historyRowData += "<td class='playerDataCell'><i class='fa fa-hand-rock-o'></i>Rock</td>";
+		} else if (playerMove === "paper") {
+			historyRowData += "<td class='playerDataCell'><i class='fa fa-hand-paper-o'></i>Paper</td>";
+		} else if (playerMove === "scissors") {
+			historyRowData += "<td class='playerDataCell'><i class='fa fa-hand-scissors-o'></i>Scissors</td>";
+		}
+
+		if (computerMove === "rock") {
+			historyRowData += "<td class='computerDataCell'><i class='fa fa-hand-rock-o'></i>Rock</td></tr>";
+		} else if (computerMove === "paper") {
+			historyRowData += "<td class='computerDataCell'><i class='fa fa-hand-paper-o'></i>Paper</td></tr>";
+		} else if (computerMove === "scissors") {
+			historyRowData += "<td class='computerDataCell'><i class='fa fa-hand-scissors-o'></i>Scissors</td></tr>";
+		}
+
+	$("tbody").append(historyRowData);
+
+		// Add Win Class
+		if (winner === "player") {
+			$("td[class='playerDataCell']:last").addClass('win');
+		} else if (winner === "computer") {
+			$("td[class='computerDataCell']:last").addClass('win');
+		}
+}
 
 	// Set Number of Wins to End the Game
 	// $("#change_wins_form").submit(function() {
@@ -197,6 +166,8 @@ function getWinner(playerMove, computerMove) {
 	// 	endGame = parseInt($("#numberOfWins").val());
 	// 	$("#change_wins_form").slideUp("slow");
 	// });
+
+// Button Click Functionality
 $("button.newgame").click(newGame);
 $("button.rock").click(function() {getMove("rock");});
 $("button.paper").click(function() {getMove("paper");});
@@ -206,6 +177,5 @@ $(document).ready(function() {
 
 	$(".action_items").show();
 	$("#change_wins_form").hide();
-	
 
 });
