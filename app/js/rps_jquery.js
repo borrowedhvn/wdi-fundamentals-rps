@@ -115,24 +115,27 @@ function refreshScores() {
 function createHistoryRow(winner) {
 	var historyRowData;
 	historyRowData += "<tr><td>" + round + "</td>";
+	historyRowData += "<td class='playerDataCell'><i class='fa'></i>" + playerMove + "</td>";
+	historyRowData += "<td class='computerDataCell'><i class='fa'></i>" + computerMove + "</td>";
 
+	$("tbody").append(historyRowData);
+
+		// Add Icon
 		if (playerMove === "rock") {
-			historyRowData += "<td class='playerDataCell'><i class='fa fa-hand-rock-o'></i>Rock</td>";
+			$("td[class='playerDataCell']:last i").addClass('fa-hand-rock-o');
 		} else if (playerMove === "paper") {
-			historyRowData += "<td class='playerDataCell'><i class='fa fa-hand-paper-o'></i>Paper</td>";
+			$("td[class='playerDataCell']:last i").addClass('fa-hand-paper-o');
 		} else if (playerMove === "scissors") {
-			historyRowData += "<td class='playerDataCell'><i class='fa fa-hand-scissors-o'></i>Scissors</td>";
+			$("td[class='playerDataCell']:last i").addClass('fa-hand-scissors-o');
 		}
 
 		if (computerMove === "rock") {
-			historyRowData += "<td class='computerDataCell'><i class='fa fa-hand-rock-o'></i>Rock</td></tr>";
+			$("td[class='computerDataCell']:last i").addClass('fa-hand-rock-o');
 		} else if (computerMove === "paper") {
-			historyRowData += "<td class='computerDataCell'><i class='fa fa-hand-paper-o'></i>Paper</td></tr>";
+			$("td[class='computerDataCell']:last i").addClass('fa-hand-paper-o');
 		} else if (computerMove === "scissors") {
-			historyRowData += "<td class='computerDataCell'><i class='fa fa-hand-scissors-o'></i>Scissors</td></tr>";
+			$("td[class='computerDataCell']:last i").addClass('fa-hand-scissors-o');
 		}
-
-	$("tbody").append(historyRowData);
 
 		// Add Win Class
 		if (winner === "player") {
@@ -140,6 +143,9 @@ function createHistoryRow(winner) {
 		} else if (winner === "computer") {
 			$("td[class='computerDataCell']:last").addClass('win');
 		}
+
+		// Capitalize First Letter
+		$("td").css("text-transform", "capitalize");
 }
 
 	// Set Number of Wins to End the Game

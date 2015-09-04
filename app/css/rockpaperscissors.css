@@ -85,6 +85,19 @@
     font-size: 1.25em
 }
 
+div.computer_score_container,
+div.player_score_container {
+	
+}
+
+div.player_score_container {
+	
+}
+
+div.scoreboard {
+	padding: 15px;
+}
+
 /* Select Move */
 .select_move {
 	padding: 15px;
@@ -101,21 +114,6 @@
 	font-size: 1.4em;
 	width: 110px;
 	display: block;
-}
-
-
-/* Scoreboard */
-div.computer_score_container,
-div.player_score_container {
-	
-}
-
-div.player_score_container {
-	
-}
-
-div.scoreboard {
-	padding: 15px;
 }
 
 /* Round History */
@@ -141,7 +139,6 @@ th {
 div.round_history h2 {
 	margin-top: 36px;
 }
-
 
 /* Media Queries */
 
