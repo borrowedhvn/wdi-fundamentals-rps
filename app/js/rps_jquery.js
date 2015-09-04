@@ -104,10 +104,19 @@ function refreshScores() {
 	$(".player_score").html(playerWins);
 
 	if (playerWins >= endGame) {
-		$(".modal-title").prepend("<h1 class='winner_message'>Yay! You Won!</h1>");
+		if ($(".winner_message").length) {
+			// do nothing
+		} else {
+			$(".modal-title").prepend("<h1 class='winner_message'>Yay! You Won!</h1>");
+		}
 		$("#myModal").modal("show");
+
 	} else if (computerWins >= endGame) {
-		$(".modal-title").prepend("<h1 class='winner_message'>Game Over &ndash; Computer Won</h1>");
+		if ($(".winner_message").length) {
+			// do nothing
+		} else {
+			$(".modal-title").prepend("<h1 class='winner_message'>Game Over &ndash; Computer Won</h1>");
+		}		
 		$("#myModal").modal("show");
     }
 }
