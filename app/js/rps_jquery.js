@@ -1,3 +1,5 @@
+$(document).ready (function() {
+
 // Global Variables 
 var playerWins = 0;
 var computerWins = 0;
@@ -5,7 +7,7 @@ var round = 1;
 var playerMove;
 var computerMove;
 var winner;
-var endGame = 3;
+var endGame;
 
 // Update Scoreboard 
 function refreshScores() {
@@ -153,10 +155,8 @@ function getWinner(playerMove, computerMove) {
 } // closes getWinner
 
 
-$(document).ready (function() {
-
 	$(".action_items").show();
-	$("#change_wins_form").hide();
+	$("#change_wins_form").show();
 
 	// Set Number of Wins to End the Game
 	// $("#change_wins_form").submit(function() {
@@ -173,13 +173,15 @@ $(document).ready (function() {
 	// });
 
 // Set Number of Wins to End the Game
-	$("#change_wins_form").submit(function(e) {
-		console.log(endGame);
-		endGame = ("#numberOfWins").val();
-		console.log(endGame);
-		endGame = parseInt(endGame);
+	$("#change_wins_form").submit(function() {
+		endGame = parseInt($("#numberOfWins").val());
 		console.log(endGame);
 	});
+
+	// $(".hide_form").click(function() {
+	// 	endGame = parseInt($("#numberOfWins").val());
+	// 	$("#change_wins_form").slideUp("slow");
+	// });
 
 
 	 // Select Rock
