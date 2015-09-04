@@ -1,19 +1,38 @@
-$(document).ready (function() {
+'use strict';
 
 // Global Variables 
+var endGame = 4;
 var playerWins = 0;
 var computerWins = 0;
 var round = 1;
 var playerMove;
 var computerMove;
 var winner;
-var endGame;
+
+	// New Game
+function newGame() {
+	playerWins = 0;
+	computerWins = 0;
+	round = 1;
+	$("tbody").html("");
+	$(".winner_message").remove();
+	refreshScores();
+	$("#change_wins_form").slideDown("slow");
+}
+
+function getMove(playerSelection) {
+	playerMove = playerSelection;
+	winner = getWinner(playerMove, randomPlay());
+	createHistoryRow(winner);
+	refreshScores();
+}
+	
 
 // Update Scoreboard 
 function refreshScores() {
 	$(".computer_score").html(computerWins);
 	$(".player_score").html(playerWins);
-	// endGame = parseInt(numberOfWins);
+
 	if (playerWins >= endGame) {
 		$(".modal-title").prepend("<h1 class='winner_message'>Yay! You Won!</h1>");
 		$("#myModal").modal("show");
@@ -154,10 +173,6 @@ function getWinner(playerMove, computerMove) {
     return winner;
 } // closes getWinner
 
-
-	$(".action_items").show();
-	$("#change_wins_form").show();
-
 	// Set Number of Wins to End the Game
 	// $("#change_wins_form").submit(function() {
 	// var winInput = parseInt($("#numberOfWins").val());
@@ -182,42 +197,15 @@ function getWinner(playerMove, computerMove) {
 	// 	endGame = parseInt($("#numberOfWins").val());
 	// 	$("#change_wins_form").slideUp("slow");
 	// });
+$("button.newgame").click(newGame);
+$("button.rock").click(function() {getMove("rock");});
+$("button.paper").click(function() {getMove("paper");});
+$("button.scissors").click(function() {getMove("scissors");});
 
+$(document).ready(function() {
 
-	 // Select Rock
-	$("button.rock").click(function() {
-		playerMove = "rock";
-		var winner = getWinner(playerMove, randomPlay());
-		createHistoryRow(winner);
-		refreshScores();
-	});
-
-	// Select Paper
-	$("button.paper").click(function() {
-		playerMove = "paper";
-		var winner = getWinner(playerMove, randomPlay());
-		createHistoryRow(winner);
-		refreshScores();
-	});
-
-	// Select Scissors
-	$("button.scissors").click(function() {
-		playerMove = "scissors";
-		var winner = getWinner(playerMove, randomPlay());
-		createHistoryRow(winner);
-		refreshScores();
-	});
-
-	// New Game
-	$("button.newgame").click(function() {
-		playerWins = 0;
-		computerWins = 0;
-		// var numberOfWins;
-		round = 1;
-		$("tbody").html("");
-		$(".winner_message").remove();
-		refreshScores();
-		$("#change_wins_form").slideDown("slow");
-	});
+	$(".action_items").show();
+	$("#change_wins_form").hide();
+	
 
 });
