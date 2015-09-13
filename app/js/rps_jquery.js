@@ -175,7 +175,7 @@ function submitNewGameForm() {
 		$(".action_items").fadeIn("slow");
 	}
 
-	// Get Player Name
+	// Get Player Name & Replace "Player"
 	playerName = ($("#playerName").val());
 	$(".player_name").html(playerName);
 }
