@@ -139,10 +139,10 @@ function playToX() {
         var roundWinner = getWinner(getPlayerMove(player), getComputerMove(computer));
         if (roundWinner === "player") {
             playerWins += 1;
-            console.log('Player wins!');
+            console.log('You selected ' + player + '. Computer selected ' + computer + '. Player wins!');
         } else if (roundWinner === "computer") {
             computerWins += 1;
-            console.log('Computer wins!');
+            console.log('You selected ' + player + '. Computer selected ' + computer + '. Computer wins!');
         } else if (roundWinner === "tie") {
             console.log("It's a tie");
         } else {
@@ -150,7 +150,7 @@ function playToX() {
         } // closes if...else
     } // closes while loop
 
-    return ("Game over! You won " + playerWins + " times. The computer won " + computerWins + " times.");
+    console.log("Game over! You won " + playerWins + " times. The computer won " + computerWins + " times.");
 } // closes playToX
 
 ////////////////////////////////////////////////
