@@ -164,11 +164,14 @@ function createHistoryRow(winner) {
 
 // Set New Game Parameters
 function submitNewGameForm() {
-
 	// Set Number of Wins to End the Game
 	endGame = parseInt($("#numberOfWins").val());
-	if ((endGame === NaN) || (endGame > 10)) {
+	// Validate entry is between 1 and 10
+	if ((endGame > 10) || (endGame < 1)) {
 		alert("Please pick a number between 1 and 10.");
+	// Validate entry is a number.
+	} else if (!$.isNumeric(endGame)) {
+		alert("Please pick a number between 1 and 10.")
 	} else {
 		$("div.scoreboard h4").html(endGame + " Wins Ends the Game");
 		$("#change_wins_form").slideUp("slow");
