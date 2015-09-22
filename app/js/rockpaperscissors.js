@@ -22,19 +22,11 @@ function randomPlay() {
 ////////////////////////////////////////////////
 
 function getPlayerMove(move) {
-    if (move !== null) {
-        return move;
-    } else {
-        return getInput();
-    }
+    return move || getInput();
 } // closes getPlayerMove
 
 function getComputerMove(move) {
-    if (move !== null) {
-        return move;
-    } else {
-        return randomPlay();
-    }
+    return move || randomPlay();
 } // closes getComputerMove
 
 function getWinner(playerMove, computerMove) {
