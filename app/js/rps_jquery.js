@@ -1,10 +1,10 @@
 'use strict';
 
 // Global Variables 
-var endGame = 3;
-var playerWins = 0;
-var computerWins = 0;
-var round = 1;
+var endGame;
+var playerWins;
+var computerWins;
+var round;
 var playerMove;
 var computerMove;
 var winner;
@@ -19,6 +19,30 @@ function newGame() {
 	$(".winner_message").remove();
 	refreshScores();
 	$("#change_wins_form").slideDown("slow");
+}
+
+// Set New Game Parameters
+function submitNewGameForm() {
+	// Set Number of Wins to End the Game
+	endGame = parseInt($("#numberOfWins").val());
+	// Validate entry is between 1 and 10
+	if ((endGame > 10) || (endGame < 1)) {
+		alert("Please pick a number between 1 and 10.");
+	// Validate entry is a number.
+	} else if (!$.isNumeric(endGame)) {
+		alert("Please pick a number between 1 and 10.")
+	} else {
+		$("div.scoreboard h4").html(endGame + " Wins Ends the Game");
+		$("#change_wins_form").slideUp("slow");
+		$(".action_items").fadeIn("slow");
+	}
+
+	// Get Player Name (only if provided)
+	if ($("#playerName").val()) {
+	playerName = ($("#playerName").val());
+	}
+	// Set Player Name 
+	$(".player_name").html(playerName);
 }
 
 // Get Player Move
@@ -162,40 +186,19 @@ function createHistoryRow(winner) {
 		$("td").css("text-transform", "capitalize");
 }
 
-// Set New Game Parameters
-function submitNewGameForm() {
-	// Set Number of Wins to End the Game
-	endGame = parseInt($("#numberOfWins").val());
-	// Validate entry is between 1 and 10
-	if ((endGame > 10) || (endGame < 1)) {
-		alert("Please pick a number between 1 and 10.");
-	// Validate entry is a number.
-	} else if (!$.isNumeric(endGame)) {
-		alert("Please pick a number between 1 and 10.")
-	} else {
-		$("div.scoreboard h4").html(endGame + " Wins Ends the Game");
-		$("#change_wins_form").slideUp("slow");
-		$(".action_items").fadeIn("slow");
-	}
-
-	// Get Player Name & Replace "Player"
-	playerName = ($("#playerName").val());
-	$(".player_name").html(playerName);
-}
-
-// Button Click Actions
-$("button.newgame").click(newGame);
-$("#change_wins_form").submit(function(e) {
-	e.preventDefault();
-	submitNewGameForm();
-});
-$("button.rock").click(function() {getMove("rock");});
-$("button.paper").click(function() {getMove("paper");});
-$("button.scissors").click(function() {getMove("scissors");});
-
 $(document).ready(function() {
-
+	// Hide the game and change_wins_form
 	$(".action_items").hide();
 	$("#change_wins_form").hide();
+
+	// Button Click Actions
+	$("button.newgame").click(newGame);
+	$("#change_wins_form").submit(function(e) {
+		e.preventDefault();
+		submitNewGameForm();
+	});
+	$("button.rock").click(function() {getMove("rock");});
+	$("button.paper").click(function() {getMove("paper");});
+	$("button.scissors").click(function() {getMove("scissors");});
 
 });
