@@ -46,7 +46,7 @@ function getWinner(playerMove, computerMove) {
                 winner = "player";
                 break;
             default:
-                winner = "Someone didn't pick!";
+                winner = "This is the default";
         } //closes switch
     } else if (playerMove === "paper") {
          switch (computerMove) {
@@ -60,7 +60,7 @@ function getWinner(playerMove, computerMove) {
                 winner = "computer";
                 break;
             default:
-                winner = "Someone didn't pick!";
+                winner = "This is the default";
         } // closes switch
     } else if (playerMove === "scissors") {
          switch (computerMove) {
@@ -74,7 +74,7 @@ function getWinner(playerMove, computerMove) {
                 winner = "tie";
                 break;
             default:
-                winner = "Someone didn't pick!";
+                winner = "This is the default";
         } // closes switch
     } // closes else if
     return winner;
